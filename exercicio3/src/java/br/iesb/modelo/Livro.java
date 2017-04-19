@@ -1,5 +1,5 @@
 
-package br.iesb.livro;
+package br.iesb.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -20,19 +20,19 @@ public class Livro implements Serializable{
     private String txTitulo;
     @Column(name = "tx_autor", nullable = false) 
     private String txAutor;
-    @Column(name = "tx_paginas", nullable = false) 
-    private String txPaginas;
+    @Column(name = "int_Paginas", nullable = false) 
+    private int intPaginas;
     @Column(name = "tx_isbn", nullable = false) 
     private String txISBN;
 
     public Livro() {
     }
 
-    public Livro(int idLivro, String txTitulo, String txAutor, String txPaginas, String txISBN) {
+    public Livro(int idLivro, String txTitulo, String txAutor, int intPaginas, String txISBN) {
         this.idLivro = idLivro;
         this.txTitulo = txTitulo;
         this.txAutor = txAutor;
-        this.txPaginas = txPaginas;
+        this.intPaginas = intPaginas;
         this.txISBN = txISBN;
     }
 
@@ -69,12 +69,12 @@ public class Livro implements Serializable{
         this.idLivro = idLivro;
     }
 
-    public String getTxPaginas() {
-        return txPaginas;
+    public int getIntPaginas() {
+        return intPaginas;
     }
 
-    public void setTxPaginas(String txPaginas) {
-        this.txPaginas = txPaginas;
+    public void setIntPaginas(int intPaginas) {
+        this.intPaginas = intPaginas;
     }
 
 }

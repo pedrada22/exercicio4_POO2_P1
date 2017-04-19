@@ -1,8 +1,8 @@
 
-<%@page import="br.iesb.modelo.Estagiario"%>
+<%@page import="br.iesb.modelo.Livro"%>
 <%@page import="java.util.ArrayList"%>
 <%
-    ArrayList<Estagiario> lista = (ArrayList<Estagiario>) request.getAttribute("lista"); 
+    ArrayList<Livro> lista = (ArrayList<Livro>) request.getAttribute("lista"); 
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,11 +12,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-        <title>Lista de Estagiarios</title>
+        <title>Lista dos Livros</title>
     </head>
     <body>
         <p align="left">
-            <a href="./verEstagiario?operacao=novo">Novo</a>
+            <a href="./verLivro?operacao=novo">Novo</a>
         </p>
         <hr>
         <table  class="form-control"  border="1">
@@ -24,29 +24,23 @@
             if(!lista.isEmpty()){ %>
                 <tr>
                     <td>Código</td> 
-                    <td>Nome</td>
-                    <td>Curso</td>
-                    <td>Valor da Bolsa</td>
-                    <td>Valor Ticket Refeição</td>
-                    <td>Carga Horaria</td>
-                    <td>Anos de Experiência</td>
-                    <td>Duração do Estágio</td>
+                    <td>Titulo</td>
+                    <td>Autor</td>
+                    <td>ISBN</td>
+                    <td>Paginas</td>
                 </tr>
             <%
-                for(Estagiario p : lista){%>
+                for(Livro p : lista){%>
                     <tr>
-                        <td><%=p.getIdEstagiario()%></td>
-                        <td><%=p.getTxNome()%></td>
-                        <td><%=p.getTxCurso()%></td>
-                        <td><%=p.getNfValorBolsa()%></td>
-                        <td><%=p.getNfValorTicketRefeicao()%></td>
-                        <td><%=p.getNiCargaHoraria()%></td>
-                        <td><%=p.getNiAnosExperiencia()%></td>
-                        <td><%=p.getNiDuracaoEstagio()%></td>
+                        <td><%=p.getIdLivro()%></td>
+                        <td><%=p.getTxTitulo()%></td>
+                        <td><%=p.getTxAutor()%></td>
+                        <td><%=p.getTxISBN()%></td>
+                        <td><%=p.getIntPaginas()%></td>
                         <td>
-                            <a href="./verEstagiario?operacao=alterar&idEstagiario=<%=p.getIdEstagiario()%>">Alterar</a>
+                            <a href="./verLivro?operacao=alterar&idLivro=<%=p.getIdLivro()%>">Alterar</a>
                             &nbsp; | &nbsp;
-                            <a href="./verEstagiario?operacao=excluir&idEstagiario=<%=p.getIdEstagiario()%>">Excluir</a>
+                            <a href="./verLivro?operacao=excluir&idLivro=<%=p.getIdLivro()%>">Excluir</a>
                         </td>
                     </tr>
                 <%
